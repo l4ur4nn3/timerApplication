@@ -2,6 +2,7 @@ var timerInterval;
 var startTime;
 var elapsedTime = 0;
 var isPaused = false;
+var hourlyRate = 10;
 
 function startTimer() {
     if (!timerInterval) {
@@ -29,7 +30,7 @@ function updateTimer() {
 function togglePause() {
     isPaused = !isPaused;
     var pauseButton = document.getElementById("pause");
-    pauseButton.textContent = isPaused ? "Reprendre" : "Pause";
+                pauseButton.textContent = isPaused ? "Reprendre" : "Pause";
     if (isPaused) {
         clearInterval(timerInterval);
         timerInterval = null;
@@ -89,12 +90,18 @@ function loadElapsedTimeFromStorage() {
 }
 
 function calculatePaymentAmount() {
-    var paymentAmount = (elapsedTime / 1000 / 60 / 60) * 10; 
+    var paymentAmount = (elapsedTime / 1000 / 60 / 60) * hourlyRate; 
     document.getElementById("payment-amount-value").textContent = paymentAmount.toFixed(2) + " €";
+}
+
+function updateHourlyRate() {
+    hourlyRate = parseFloat(document.getElementById("hourly-rate-input").value);
+    calculatePaymentAmount();
 }
 
 document.getElementById("start").addEventListener("click", startTimer);
 document.getElementById("pause").addEventListener("click", togglePause);
 document.getElementById("reset").addEventListener("click", resetTimer);
+document.getElementById("hourly-rate-input").addEventListener("input", updateHourlyRate);
 
 loadElapsedTimeFromStorage();
