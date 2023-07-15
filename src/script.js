@@ -30,7 +30,7 @@ function updateTimer() {
 function togglePause() {
     isPaused = !isPaused;
     var pauseButton = document.getElementById("pause");
-                pauseButton.textContent = isPaused ? "Reprendre" : "Pause";
+                pauseButton.textContent = isPaused ? "Continue" : "Pause";
     if (isPaused) {
         clearInterval(timerInterval);
         timerInterval = null;
@@ -41,7 +41,7 @@ function togglePause() {
 }
 
 function resetTimer() {
-    var confirmReset = confirm("Êtes-vous sûr de vouloir réinitialiser le chronomètre ?");
+    var confirmReset = confirm("Are you sure you wanna start over ?");
     if (confirmReset) {
         clearInterval(timerInterval);
         timerInterval = null;
