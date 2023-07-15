@@ -5,55 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bill Calculator</title>
     <link href="/dist/output.css" rel="stylesheet" />
+    <link rel="icon" href="src/calculator-solid.svg" type="image/svg+xml" />
   </head>
   <body class="text-center w-full text-amber-950">
-    <div class="container">
-      <h1 class="text-3xl mt-4">Self-employed bill calculator</h1>
-      <label
-        for="hourly-rate-input"
-        id="hourly-rate-label"
-        class="block mb-2 text-sm font-medium mt-4"
-        >How much you charge for an hour of work (€):</label
-      >
-      <input
-        class="w-20 p-2 text-amber-950 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500"
-        type="number"
-        id="hourly-rate-input"
-        min="0"
-        step="0.1"
-        value="10"
-      />
-      <div class="text-7xl mt-4 mb-4 text-amber-500" id="timer">00:00:00</div>
-      <div class="inline-flex rounded-md shadow-sm" role="group">
-        <button
-          type="button"
-          class="inline-flex items-center px-4 py-2 text-sm font-medium text-amber-950 bg-transparent border border-gray-300 rounded-l-lg hover:bg-amber-700 hover:text-white focus:z-10 focus:bg-amber-700 focus:text-white"
-          id="start"
+    <div class="container w-full mr-0">
+      <h1 class="text-3xl mt-4 mb-4">Self-employed bill calculator</h1>
+      <p class="text-xs w-1/2 ml-auto mr-auto text-left mt-4 mb-4">
+        Are you ready to take control of your time and maximize your
+        productivity? Start using this timer application now and experience the
+        benefits of efficient time management and accurate task tracking.
+      </p>
+      <h2 class="text-left w-1/2 mr-auto ml-auto text-sm">Instructions</h2>
+      <ol class="text-xs w-1/2 ml-auto mr-auto text-left">
+        <li>Click the 'Start' button to begin the timer.</li>
+        <li>
+          Use the 'Pause' button to take breaks or halt the timer temporarily.
+        </li>
+        <li>Hit 'Reset'to start over and clear all recorded time.</li>
+        <li>
+          Input your hourly rate in the designated field to calculate estimated
+          earnings.
+        </li>
+      </ol>
+      <div class="w-1/2 border-4 mr-auto ml-auto mt-4">
+        <label
+          for="hourly-rate-input"
+          id="hourly-rate-label"
+          class="block mb-2 text-sm font-medium mt-4"
+          >How much you charge for an hour of work (€):</label
         >
-          <i class="fa-solid fa-hourglass-start pr-4"></i>
-          Start
-        </button>
-        <button
-          type="button"
-          class="inline-flex items-center px-4 py-2 text-sm font-medium text-amber-950 bg-transparent border-t border-b border-gray-300 hover:bg-amber-700 hover:text-white focus:z-10 focus:bg-amber-700 focus:text-white"
-          id="pause"
-        >
-          <i class="fa-solid fa-pause pr-4"></i>
-          Pause
-        </button>
-        <button
-          type="button"
-          id="reset"
-          class="inline-flex items-center px-4 py-2 text-sm font-medium text-amber-950 bg-transparent border border-gray-300 rounded-r-md hover:bg-amber-700 hover:text-white focus:z-10 focus:bg-amber-700 focus:text-white"
-        >
-          <i class="fa-solid fa-power-off pr-4"></i>
-          Start over
-        </button>
+        <input
+          class="w-20 p-2 text-amber-950 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500"
+          type="number"
+          id="hourly-rate-input"
+          min="0"
+          step="0.1"
+          value="10"
+        />
+        <div class="text-7xl mt-4 mb-4 text-amber-500" id="timer">00:00:00</div>
+        <div class="inline-flex rounded-md shadow-sm" role="group">
+          <button
+            type="button"
+            class="inline-flex items-center px-4 py-2 text-sm font-medium text-amber-950 bg-transparent border border-gray-300 rounded-l-lg hover:bg-amber-700 hover:text-white focus:z-10 focus:bg-amber-700 focus:text-white"
+            id="start"
+          >
+            <i class="fa-solid fa-hourglass-start pr-4"></i>
+            Start
+          </button>
+          <button
+            type="button"
+            class="inline-flex items-center px-4 py-2 text-sm font-medium text-amber-950 bg-transparent border-t border-b border-gray-300 hover:bg-amber-700 hover:text-white focus:z-10 focus:bg-amber-700 focus:text-white"
+            id="pause"
+          >
+            <i class="fa-solid fa-pause pr-4"></i>
+            Pause
+          </button>
+          <button
+            type="button"
+            id="reset"
+            class="inline-flex items-center px-4 py-2 text-sm font-medium text-amber-950 bg-transparent border border-gray-300 rounded-r-md hover:bg-amber-700 hover:text-white focus:z-10 focus:bg-amber-700 focus:text-white"
+          >
+            <i class="fa-solid fa-power-off pr-4"></i>
+            Start over
+          </button>
+        </div>
+        <div class="mt-4" id="elapsed-time-title">
+          You've been working since:
+        </div>
+        <div id="elapsed-time-value">00:00:00</div>
+        <div class="mt-4" id="payment-amount-title">You should be paid:</div>
+        <div id="payment-amount-value">0 €</div>
       </div>
-      <div class="mt-4" id="elapsed-time-title">You've been working since:</div>
-      <div id="elapsed-time-value">00:00:00</div>
-      <div class="mt-4" id="payment-amount-title">You should be paid:</div>
-      <div id="payment-amount-value">0 €</div>
     </div>
     <footer>
       <script src="src/script.js"></script>
