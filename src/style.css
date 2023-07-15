@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@media screen and (max-width: 768px) {
+    .fa-solid{
+        display: none!important;
+    }
+    button{
+        border-color: rgba(0,0,0,0)!important;
+        justify-content: center!important;
+    }
+  }

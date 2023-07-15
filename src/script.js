@@ -1,3 +1,21 @@
+function changeLanguage(lang) {
+    var elements = document.querySelectorAll('[data-translate]');
+  
+    if (lang === 'en') {
+      elements.forEach(function(element) {
+        var key = element.getAttribute('data-translate');
+        element.textContent = key;
+      });
+    } else {
+      elements.forEach(function(element) {
+        var key = element.getAttribute('data-translate');
+        if (translations[key]) {
+          element.textContent = translations[key];
+        }
+      });
+    }
+  }
+
 // Declare variables
 var timerInterval; // Holds the interval ID for the timer
 var startTime; // Stores the start time of the timer
@@ -48,6 +66,7 @@ function togglePause() {
 // Resets the timer to 0 and clears stored data
 function resetTimer() {
     var confirmReset = confirm("Are you sure you want to start over?");
+    
     if (confirmReset) {
         clearInterval(timerInterval); // Clear the interval
         timerInterval = null;
@@ -116,6 +135,7 @@ document.getElementById("start").addEventListener("click", startTimer);
 document.getElementById("pause").addEventListener("click", togglePause);
 document.getElementById("reset").addEventListener("click", resetTimer);
 document.getElementById("hourly-rate-input").addEventListener("input", updateHourlyRate);
+  
 
 // Load elapsed time from local storage when the page loads
 loadElapsedTimeFromStorage();
