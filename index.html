@@ -7,8 +7,8 @@
     <link href="/dist/output.css" rel="stylesheet" />
     <link rel="icon" href="src/calculator-solid.svg" type="image/svg+xml" />
   </head>
-  <body class="text-center w-full text-amber-950">
-    <div class="container w-full mr-0">
+  <body class="text-center text-amber-950">
+    <div class="container w-full mr-auto ml-auto">
       <h1 class="text-3xl mt-4 mb-4">Self-employed bill calculator</h1>
       <p class="text-xs w-1/2 ml-auto mr-auto text-left mt-4 mb-4">
         Are you ready to take control of your time and maximize your
@@ -27,7 +27,7 @@
           earnings.
         </li>
       </ol>
-      <div class="w-1/2 border-4 mr-auto ml-auto mt-4">
+      <div class="w-1/2 border-4 mr-auto ml-auto mt-4 mb-4">
         <label
           for="hourly-rate-input"
           id="hourly-rate-label"
@@ -77,7 +77,15 @@
         <div id="payment-amount-value">0 €</div>
       </div>
     </div>
-    <footer>
+    <footer class="w-5/12 ml-auto mr-auto text-gray-400 mt-8">
+      <p class="text-xs italic text-center">
+        Note: Clearing your browser cache will result in the loss of any stored
+        data in this timer application. </br>
+        Please keep this in mind if you wish to
+        retain your progress.</br>
+        For the source code of this timer application,
+        visit my GitHub profile at <a href="https://github.com/l4ur4nn3" class="text-gray-500 underline">GitHub - l4ur4nn3</a>.
+      </p>
       <script src="src/script.js"></script>
       <script
         src="https://kit.fontawesome.com/d74732e987.js"
