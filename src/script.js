@@ -54,7 +54,7 @@ function generateCalendar(month, year) {
     calendarHTML += "<td class='border border-gray-400 py-2 text-center'></td>";
   }
   for (let i = startDay; i < 7; i++) {
-    calendarHTML += `<td class='border border-gray-400 py-2 text-center'>${dayCount}</td>`;
+    calendarHTML += `<td class='border border-gray-400 py-2 text-center' data-day="${dayCount}">${dayCount}</td>`;
     dayCount++;
   }
   calendarHTML += "</tr>";
@@ -62,7 +62,7 @@ function generateCalendar(month, year) {
   while (dayCount <= daysInMonth) {
     calendarHTML += "<tr>";
     for (let i = 0; i < 7 && dayCount <= daysInMonth; i++) {
-      calendarHTML += `<td class='border border-gray-400 py-2 text-center'>${dayCount}</td>`;
+      calendarHTML += `<td class='border border-gray-400 py-2 text-center' data-day="${dayCount}">${dayCount}</td>`;
       dayCount++;
     }
     calendarHTML += "</tr>";
