@@ -83,9 +83,11 @@ function generateCalendar(month, year) {
     const durationMinutes = localStorage.getItem(dateKey);
     if (durationMinutes) {
       const td = calendarContainer.querySelector(`td[data-day="${i}"]`);
+      if (td){
       const newDurationSpan = document.createElement("span");
       newDurationSpan.textContent = " - " + durationMinutes + "min";
       td.innerHTML = i + newDurationSpan.outerHTML;
+      }
     }
   }
 
