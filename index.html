@@ -1,73 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bill Calculator</title>
-    <link href="/dist/output.css" rel="stylesheet" />
-    <link rel="icon" href="src/calculator-solid.svg" type="image/svg+xml" />
-  </head>
-  <body class="text-center text-amber-950">
-    <header class="text-gray-400 mt-4 text-sm">
-        <!-- <button class="mr-4" onclick="changeLanguage('fr')">Français</button> -->
-        <!-- <button class="ml-4" onclick="changeLanguage('en')">English</button> -->
-    </header>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bill Calculator</title>
+  <link href="/dist/output.css" rel="stylesheet" />
+  <link rel="icon" href="src/calculator-solid.svg" type="image/svg+xml" />
+</head>
+
+
+<body class="text-center text-amber-950">
+  <!-- <header class="text-gray-400 mt-4 text-sm">
+        <button class="mr-4" onclick="changeLanguage('fr')">Français</button>
+        <button class="ml-4" onclick="changeLanguage('en')">English</button>
+    </header> -->
+  <div id="unoptimized" class="py-48 px-10">
+    <p>This site isn't optimized for mobile devices under 768px width. Please try on another device.</p>
+  </div>
+  <div id="optimized">
     <div class="container w-full mr-auto ml-auto">
       <h1 class="text-3xl mt-4 mb-4" data-translate="Self-employed bill calculator">Self-employed bill calculator</h1>
       <h2 class="text-left w-1/2 mr-auto ml-auto text-sm">Instructions</h2>
       <div class="flex w-1/2 ml-auto mr-auto justify-stretch">
         <ol class="text-xs text-left self-center">
-            <li data-translate='Click the "Start" button to begin the timer.'>Click the "Start" button to begin the timer.</li>
-            <li data-translate='Use the "Pause" button to take breaks or halt the timer temporarily.'>
-                Use the "Pause" button to take breaks or halt the timer temporarily.
-            </li>
-            <li data-translate='Hit "Reset" to start over and clear all recorded time.'>Hit "Reset" to start over and clear all recorded time.</li>
-            <li data-translate='Input your hourly rate in the designated field to calculate estimated earnings.'>
-                Input your hourly rate in the designated field to calculate estimated
-                earnings.
-            </li>
+          <li data-translate='Click the "Start" button to begin the timer.'>Click the "Start" button to begin the timer.
+          </li>
+          <li data-translate='Use the "Pause" button to take breaks or halt the timer temporarily.'>
+            Use the "Pause" button to take breaks or halt the timer temporarily.
+          </li>
+          <li data-translate='Hit "Reset" to start over and clear all recorded time.'>Hit "Reset" to start over and
+            clear all recorded time.</li>
+          <li data-translate='Input your hourly rate in the designated field to calculate estimated earnings.'>
+            Input your hourly rate in the designated field to calculate estimated
+            earnings.
+          </li>
         </ol>
-      <img src="./src/undraw_time_management_re_tk5w.svg" class="w-1/4">
+        <img src="./src/undraw_time_management_re_tk5w.svg" class="w-1/4">
       </div>
       <div class="w-1/2 border-4 mr-auto ml-auto mt-4 mb-4">
-        <label
-          for="hourly-rate-input"
-          id="hourly-rate-label"
-          class="block mb-2 text-sm font-medium mt-4"
-          data-translate='How much you charge for an hour of work (€):'
-          >How much you charge for an hour of work (€):</label
-        >
+        <label for="hourly-rate-input" id="hourly-rate-label" class="block mb-2 text-sm font-medium mt-4"
+          data-translate='How much you charge for an hour of work (€):'>How much you charge for an hour of work
+          (€):</label>
         <input
           class="w-20 p-2 text-amber-950 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500"
-          type="number"
-          id="hourly-rate-input"
-          min="0"
-          step="0.1"
-          value="10"
-        />
-        <div class="text-center max-lg:text-7xl max-sm:text-xs md:text-2xl mt-4 mb-4 text-amber-500" id="timer">00:00:00</div>
+          type="number" id="hourly-rate-input" min="0" step="0.1" value="10" />
+        <div class="text-center max-lg:text-7xl max-sm:text-xs md:text-2xl mt-4 mb-4 text-amber-500" id="timer">00:00:00
+        </div>
         <div class="inline-flex rounded-md shadow-sm max-lg:flex-col" role="group">
-          <button
-            type="button"
+          <button type="button"
             class="inline-flex items-center px-4 py-2 text-sm font-medium text-amber-950 bg-transparent border border-gray-300 rounded-l-lg hover:bg-amber-700 hover:text-white focus:z-10 focus:bg-amber-700 focus:text-white"
-            id="start"
-          >
+            id="start">
             <i class="fa-solid fa-hourglass-start pr-2"></i>
             <span data-translate="Start">Start</span>
           </button>
-          <button
-            type="button"
+          <button type="button"
             class="inline-flex items-center px-4 py-2 text-sm font-medium text-amber-950 bg-transparent border-t border-b border-gray-300 hover:bg-amber-700 hover:text-white focus:z-10 focus:bg-amber-700 focus:text-white"
-            id="pause"
-          >
+            id="pause">
             <i class="fa-solid fa-pause pr-2"></i>
             <span data-translate="Pause">Pause</span>
           </button>
-          <button
-            type="button"
-            id="reset"
-            class="inline-flex items-center px-4 py-2 text-sm font-medium text-amber-950 bg-transparent border border-gray-300 rounded-r-md hover:bg-amber-700 hover:text-white focus:z-10 focus:bg-amber-700 focus:text-white"
-          >
+          <button type="button" id="reset"
+            class="inline-flex items-center px-4 py-2 text-sm font-medium text-amber-950 bg-transparent border border-gray-300 rounded-r-md hover:bg-amber-700 hover:text-white focus:z-10 focus:bg-amber-700 focus:text-white">
             <i class="fa-solid fa-power-off pr-2"></i>
             <span data-translate="Start over">Start over</span>
           </button>
@@ -80,26 +74,32 @@
         <div id="payment-amount-value">0 €</div>
       </div>
     </div>
-<button onclick="navigateMonth(-1)">Previous</button>
-<button onclick="navigateMonth(1)">Next</button>
-<div id="monthName"></div>
+    <div class="inline-flex rounded-md shadow-sm max-lg:flex-col" role="group">
+      <button onclick="navigateMonth(-1)"
+        class="inline-flex items-center px-4 py-2 text-sm font-medium text-amber-950 bg-transparent border border-gray-300 rounded-l-lg hover:bg-amber-700 hover:text-white focus:z-10 focus:bg-amber-700 focus:text-white">Previous</button>
+      <button onclick="navigateMonth(1)"
+        class="inline-flex items-center px-4 py-2 text-sm font-medium text-amber-950 bg-transparent border border-gray-300 rounded-r-md hover:bg-amber-700 hover:text-white focus:z-10 focus:bg-amber-700 focus:text-white">Next</button>
+    </div>
+    <div class="text-center max-lg:text-7xl max-sm:text-xs md:text-2xl mt-4 mb-4 text-amber-500" id="monthName"></div>
+    <div class="calendar-container w-5/12 ml-auto mr-auto mt-8" id="calendarContainer"></div>
+  </div>
+  <footer class="w-5/12 ml-auto mr-auto text-gray-400 mt-8">
+    <p class="text-xs italic text-center"
+      data-translate="Note: Clearing your browser cache will result in the loss of any stored data in this timer application. Please keep this in mind if you wish to retain your progress.">
+      Note: Clearing your browser cache will result in the loss of any stored
+      data in this timer application.
+      Please keep this in mind if you wish to
+      retain your progress.</p>
+    <span class="text-xs italic text-center"
+      data-translate="For the source code of this timer application and additional informations, visit my GitHub profile at">For
+      the source code of this timer application and additional informations,
+      visit my GitHub profile at </span><a href="https://github.com/l4ur4nn3"
+      class="text-xs italic text-gray-500 underline">l4ur4nn3</a>.</span>
+    </p>
+    <script src="src/script.js"></script>
+    <script src="src/lang-fr.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/d74732e987.js" crossorigin="anonymous"></script>
+  </footer>
+</body>
 
-  <div class="calendar-container w-5/12 ml-auto mr-auto mt-8" id="calendarContainer"></div>
-    <footer class="w-5/12 ml-auto mr-auto text-gray-400 mt-8">
-      <p class="text-xs italic text-center" data-translate="Note: Clearing your browser cache will result in the loss of any stored data in this timer application. Please keep this in mind if you wish to retain your progress.">
-        Note: Clearing your browser cache will result in the loss of any stored
-        data in this timer application.
-        Please keep this in mind if you wish to
-        retain your progress.</p>
-        <span class="text-xs italic text-center" data-translate="For the source code of this timer application and additional informations, visit my GitHub profile at">For the source code of this timer application and additional informations,
-        visit my GitHub profile at </span><a href="https://github.com/l4ur4nn3" class="text-xs italic text-gray-500 underline">GitHub - l4ur4nn3</a>.</span>
-      </p>
-      <script src="src/script.js"></script>
-      <script src="src/lang-fr.js" type="text/javascript"></script>
-      <script
-        src="https://kit.fontawesome.com/d74732e987.js"
-        crossorigin="anonymous"
-      ></script>
-    </footer>
-  </body>
 </html>

@@ -1,3 +1,5 @@
+
+
 // Get the current month and year
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
@@ -313,4 +315,3 @@ document.getElementById("hourly-rate-input").addEventListener("input", updateHou
 
 // Load the elapsed time from local storage when the page loads
 loadElapsedTimeFromStorage();
-

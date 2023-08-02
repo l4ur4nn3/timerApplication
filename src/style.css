@@ -2,11 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 @media screen and (max-width: 768px) {
-    .fa-solid{
+    #optimized, footer {
         display: none!important;
     }
-    button{
-        border-color: rgba(0,0,0,0)!important;
-        justify-content: center!important;
+}
+@media screen and (min-width: 768px) {
+    #unoptimized{
+        display: none!important;
     }
-  }
+}
+table {
+    table-layout: fixed!important;
+    width: 100%!important; 
+}
+
+table td {
+    width: 100px!important; 
+}
