@@ -1,6 +1,9 @@
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 
+const monthsInEnglish = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+
 function changeLanguage(lang) {
   var elements = document.querySelectorAll("[data-translate]");
 
@@ -22,6 +25,9 @@ function changeLanguage(lang) {
 
 
 function generateCalendar(month, year) {
+
+  const monthNameElement = document.getElementById("monthName");
+  monthNameElement.textContent = monthsInEnglish[month];
   const calendarContainer = document.getElementById("calendarContainer");
   const currentDate = new Date(year, month, 1);
   const firstDayOfMonth = new Date(year, month, 1);
