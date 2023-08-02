@@ -216,7 +216,7 @@ function handleTdClick(event) {
 
   if (tdContent === "" || durationSpan) {
     const editOrDelete = prompt(
-      "Choisissez une option : 'E' pour éditer, 'S' pour supprimer."
+      "Choose an option : 'E' to edit, 'D' to delete."
     );
 
     if (editOrDelete !== null) {
@@ -227,7 +227,7 @@ function handleTdClick(event) {
           event.target.appendChild(newDurationSpan);
           durationSpan = newDurationSpan;
         }
-        const inputString = prompt("Entrez la nouvelle durée (ex. : 2h 30m) :");
+        const inputString = prompt("Enter your work time (ex. : 2h 30m) :");
         if (inputString !== null) {
           const [heures, minutes] = inputString
             .split("h")
@@ -236,18 +236,18 @@ function handleTdClick(event) {
           durationSpan.textContent = " - " + minutesTotal + "min";
           localStorage.setItem(dateKey, minutesTotal); 
         }
-      } else if (option === "S") {
+      } else if (option === "D") {
         if (durationSpan) {
           durationSpan.remove(); 
           localStorage.removeItem(dateKey); 
         }
       } else {
-        alert("Option non valide. Aucune modification effectuée.");
+        alert("Unvalid option. Please try again.");
       }
     }
 
   } else {
-    const inputString = prompt("Entrez la durée (ex. : 2h 30m) :");
+    const inputString = prompt("Enter your worktime (ex. : 2h 30m) :");
 
     if (inputString !== null) {
       const [heures, minutes] = inputString
