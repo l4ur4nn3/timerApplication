@@ -215,6 +215,10 @@ function formatTime(time) {
 //    you can add your worktime in the hh:mm format
 //  if not empty:
 //    e to edit, d to delete
+//update the array everytime for the final count !
+
+const contentsArray = [];
+
 function handleTdClick(event) {
   const tdContent = event.target.textContent.trim();
   const durationSpan = event.target.querySelector("span");
@@ -243,13 +247,36 @@ function handleTdClick(event) {
             .split("h")
             .map((str) => parseInt(str.trim()));
           const minutesTotal = heures * 60 + (minutes || 0);
+
+          if (durationSpan.textContent) {
+            const oldMinutes = parseInt(durationSpan.textContent.split(" ")[2]);
+            const index = contentsArray.indexOf(oldMinutes);
+            if (index !== -1) {
+              contentsArray.splice(index, 1);
+            }
+          }
+
           durationSpan.textContent = " - " + minutesTotal + "min";
           localStorage.setItem(dateKey, minutesTotal);
+
+          contentsArray.push(minutesTotal);
+
+          calculateAndDisplayResults();
         }
       } else if (option === "D") {
         if (durationSpan) {
           durationSpan.remove();
           localStorage.removeItem(dateKey);
+
+          const removedMinutes = parseInt(
+            durationSpan.textContent.split(" ")[2]
+          );
+          const index = contentsArray.indexOf(removedMinutes);
+          if (index !== -1) {
+            contentsArray.splice(index, 1);
+          }
+
+          calculateAndDisplayResults();
         }
       } else {
         alert("Unvalid option. Please try again.");
@@ -267,6 +294,10 @@ function handleTdClick(event) {
       newDurationSpan.textContent = " - " + minutesTotal + "min";
       event.target.innerHTML += newDurationSpan.outerHTML;
       localStorage.setItem(dateKey, minutesTotal);
+
+      contentsArray.push(minutesTotal);
+
+      calculateAndDisplayResults();
     }
   }
 }
@@ -350,16 +381,14 @@ function calculateAndDisplayResults() {
 
   const contentsArray = [];
 
-  console.log(contentsArray);
-
   tdWithSpans.forEach((span) => {
     const content = span.textContent;
     const numericContent = content.replace(/\D/g, "");
-    contentsArray.push(numericContent);
+    contentsArray.push(parseInt(numericContent));
   });
 
   const totalMinutes = contentsArray.reduce((total, currentValue) => {
-    return total + parseInt(currentValue, 10);
+    return total + currentValue;
   }, 0);
 
   const hours = Math.floor(totalMinutes / 60);
