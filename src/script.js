@@ -1,3 +1,9 @@
+// WIP 
+// FIXING THE NAN AT THE FIRST LAUNCH
+// Mobile version
+// Not display the 'You've been working[...]' part if no work done that month
+// Making it aesthetic
+
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 
@@ -16,24 +22,7 @@ const monthsInEnglish = [
   "December",
 ];
 
-function changeLanguage(lang) {
-  var elements = document.querySelectorAll("[data-translate]");
-
-  if (lang === "en") {
-    elements.forEach(function (element) {
-      var key = element.getAttribute("data-translate");
-      element.textContent = key;
-    });
-  } else {
-    elements.forEach(function (element) {
-      var key = element.getAttribute("data-translate");
-      if (translations[key]) {
-        element.textContent = translations[key];
-      }
-    });
-  }
-}
-
+//generate a calendar
 function generateCalendar(month, year) {
   loadCalendarData();
   const monthNameElement = document.getElementById("monthName");
@@ -102,6 +91,7 @@ function generateCalendar(month, year) {
   updateLocalStorage(month, year);
 }
 
+//store any new entry in a local session to not lose anything
 function updateLocalStorage() {
   const calendarContainer = document.getElementById("calendarContainer");
   const tdElements = calendarContainer.querySelectorAll("td");
@@ -126,6 +116,7 @@ function updateLocalStorage() {
   localStorage.setItem("calendarData", JSON.stringify(calendarData));
 }
 
+//allow user to navigate through months
 function navigateMonth(direction) {
   currentMonth += direction;
   if (currentMonth > 11) {
@@ -138,16 +129,19 @@ function navigateMonth(direction) {
   generateCalendar(currentMonth, currentYear);
 }
 
+//generate the content after the page loaded
 document.addEventListener("DOMContentLoaded", () => {
   generateCalendar(currentMonth, currentYear);
 });
 
+//timer part !
 var timerInterval;
 var startTime;
 var elapsedTime = 0;
 var isPaused = false;
 var hourlyRate = 10;
 
+//start button
 function startTimer() {
   if (!timerInterval) {
     if (elapsedTime === 0) {
@@ -159,6 +153,7 @@ function startTimer() {
   }
 }
 
+//update the elapsed time with the pause button
 function updateTimer() {
   if (!isPaused) {
     var currentTime = Date.now();
@@ -171,11 +166,13 @@ function updateTimer() {
   }
 }
 
+//update the pause button function
 function togglePause() {
   isPaused = !isPaused;
   var pauseButton = document.getElementById("pause");
-  pauseButton.textContent = isPaused ? "Continue" : "Pause";
+  pauseButton.textContent = isPaused ? "Continue" : "Pause"; //if it's paused, change the text to "continue"
 
+  //if the timer is paused, just save the elapsed time, otherway let the timer go
   if (isPaused) {
     clearInterval(timerInterval);
     timerInterval = null;
@@ -185,6 +182,7 @@ function togglePause() {
   }
 }
 
+//allow the user to reset the timer
 function resetTimer() {
   var confirmReset = confirm("Are you sure you want to start over?");
 
@@ -201,6 +199,7 @@ function resetTimer() {
   }
 }
 
+//format the time to have the beautiful hours/minutes/seconds/milliseconds interface
 function formatTime(time) {
   var milliseconds = Math.floor((time % 1000) / 10);
   var seconds = Math.floor((time / 1000) % 60);
@@ -217,6 +216,11 @@ function formatTime(time) {
   );
 }
 
+//add the working time to the calendar
+//  if you're clicking on an empty td:
+//    you can add your worktime in the hh:mm format
+//  if not empty:
+//    e to edit, d to delete
 function handleTdClick(event) {
   const tdContent = event.target.textContent.trim();
   const durationSpan = event.target.querySelector("span");
@@ -226,12 +230,12 @@ function handleTdClick(event) {
     event.target.getAttribute("data-day")
   );
 
-  if (tdContent === "" || durationSpan) {
+  if (tdContent === "" || durationSpan) { 
     const editOrDelete = prompt(
       "Choose an option : 'E' to edit, 'D' to delete."
     );
-
-    if (editOrDelete !== null) {
+    
+    if (editOrDelete !== null) { 
       const option = editOrDelete.trim().toUpperCase();
       if (option === "E") {
         if (!durationSpan) {
@@ -345,3 +349,55 @@ document
   .addEventListener("input", updateHourlyRate);
 
 loadElapsedTimeFromStorage();
+
+//calculate how much you should be paid
+function calculateAndDisplayResults() {
+  const tdWithSpans = document.querySelectorAll("td span");
+
+  const contentsArray = [];
+
+  tdWithSpans.forEach((span) => {
+    const content = span.textContent;
+    const numericContent = content.replace(/\D/g, ""); 
+    contentsArray.push(numericContent);
+  });
+
+  const totalMinutes = contentsArray.reduce((total, currentValue) => {
+    return total + parseInt(currentValue, 10);
+  }, 0);
+
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+
+  const timeSumElement = document.getElementById("timeSum");
+  timeSumElement.textContent = `${hours} hours ${minutes} minutes`;
+
+  const hourlyRate = parseFloat(
+    document.getElementById("hourly-rate-input").value
+  );
+
+  const finalSalary = (totalMinutes / 60) * hourlyRate;
+
+  const billHourlyRate = document.getElementById("ogSalary");
+  billHourlyRate.textContent = hourlyRate;
+
+  const finalSalaryElement = document.getElementById("finalSalary");
+  finalSalaryElement.textContent = `${finalSalary.toFixed(2)}€`;
+}
+
+//after the loading of the page (to allow the previous scripts to calculate everything):
+//  - display the previous function
+//  - add an eventListener triggered by a click so it allows the tool to recalculate everything if you change the month
+window.addEventListener("load", () => {
+  calculateAndDisplayResults();
+
+  const navigateMonthButtons = document.querySelectorAll(
+    ".navigate-month button"
+  );
+
+  navigateMonthButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      calculateAndDisplayResults();
+    });
+  });
+});
