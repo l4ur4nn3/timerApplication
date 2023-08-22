@@ -1,3 +1,7 @@
+//WIP
+//if the user wants to change the €/hour, erases the chrono (plus warns that it erases all the timer's data)
+//save the €/h in localstorage
+
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 
@@ -364,6 +368,7 @@ function calculatePaymentAmount() {
 function updateHourlyRate() {
   hourlyRate = parseFloat(document.getElementById("hourly-rate-input").value);
   calculatePaymentAmount();
+  calculateAndDisplayResults();
 }
 
 document.getElementById("start").addEventListener("click", startTimer);
@@ -396,10 +401,6 @@ function calculateAndDisplayResults() {
 
   const timeSumElement = document.getElementById("timeSum");
   timeSumElement.textContent = `${hours} hours ${minutes} minutes`;
-
-  const hourlyRate = parseFloat(
-    document.getElementById("hourly-rate-input").value
-  );
 
   const finalSalary = (totalMinutes / 60) * hourlyRate;
 
