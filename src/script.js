@@ -1,7 +1,3 @@
-//WIP
-//if the user wants to change the €/hour, erases the chrono (plus warns that it erases all the timer's data)
-//save the €/h in localstorage
-
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 
@@ -428,4 +424,5 @@ window.addEventListener("load", () => {
   });
 });
 
-// maybe making a french version
+//maybe making a french version
+//save the €/h in localstorage
