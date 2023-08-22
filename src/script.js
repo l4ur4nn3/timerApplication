@@ -1,10 +1,3 @@
-// WIP 
-// FIXING THE NAN AT THE FIRST LAUNCH => due to the nullmin !!
-// Fix the nullmin prob to be free of the nan problem
-// Mobile version
-// Not display the 'You've been working[...]' part if no work done that month
-// Making it aesthetic
-
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 
@@ -231,12 +224,12 @@ function handleTdClick(event) {
     event.target.getAttribute("data-day")
   );
 
-  if (tdContent === "" || durationSpan) { 
+  if (tdContent === "" || durationSpan) {
     const editOrDelete = prompt(
       "Choose an option : 'E' to edit, 'D' to delete."
     );
-    
-    if (editOrDelete !== null) { 
+
+    if (editOrDelete !== null) {
       const option = editOrDelete.trim().toUpperCase();
       if (option === "E") {
         if (!durationSpan) {
@@ -357,9 +350,11 @@ function calculateAndDisplayResults() {
 
   const contentsArray = [];
 
+  console.log(contentsArray);
+
   tdWithSpans.forEach((span) => {
     const content = span.textContent;
-    const numericContent = content.replace(/\D/g, ""); 
+    const numericContent = content.replace(/\D/g, "");
     contentsArray.push(numericContent);
   });
 
@@ -402,3 +397,5 @@ window.addEventListener("load", () => {
     });
   });
 });
+
+// maybe making a french version

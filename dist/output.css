@@ -568,6 +568,11 @@ video {
   }
 }
 
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -576,16 +581,8 @@ video {
   margin-bottom: 1rem;
 }
 
-.ml-4 {
-  margin-left: 1rem;
-}
-
 .ml-auto {
   margin-left: auto;
-}
-
-.mr-4 {
-  margin-right: 1rem;
 }
 
 .mr-auto {
@@ -594,6 +591,10 @@ video {
 
 .mt-4 {
   margin-top: 1rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
 }
 
 .mt-8 {
@@ -624,8 +625,8 @@ video {
   width: 5rem;
 }
 
-.w-5\/12 {
-  width: 41.666667%;
+.w-3\/4 {
+  width: 75%;
 }
 
 .w-full {
@@ -696,11 +697,6 @@ video {
   padding: 0.5rem;
 }
 
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-}
-
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -711,13 +707,16 @@ video {
   padding-bottom: 0.5rem;
 }
 
-.py-48 {
-  padding-top: 12rem;
-  padding-bottom: 12rem;
+.pl-4 {
+  padding-left: 1rem;
 }
 
 .pr-2 {
   padding-right: 0.5rem;
+}
+
+.pr-4 {
+  padding-right: 1rem;
 }
 
 .text-left {
@@ -728,9 +727,19 @@ video {
   text-align: center;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .text-sm {
@@ -781,18 +790,6 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-@media screen and (max-width: 768px) {
-  #optimized, footer {
-    display: none!important;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  #unoptimized{
-    display: none!important;
-  }
-}
-
 table {
   table-layout: fixed!important;
   width: 100%!important;
@@ -800,6 +797,19 @@ table {
 
 table td {
   width: 100px!important;
+}
+
+table td span {
+  color: #f59e0b!important;
+}
+
+hr {
+  border-width: 0.1rem!important;
+  border-color: #cccccc!important;
+  width: 75%!important;
+  margin-left: auto!important;
+  margin-right: auto!important;
+  margin-top: 2rem!important;
 }
 
 .hover\:bg-amber-700:hover {
@@ -837,18 +847,124 @@ table td {
 }
 
 @media not all and (min-width: 1024px) {
-  .max-lg\:flex-col {
-    flex-direction: column;
+  .max-lg\:mb-2 {
+    margin-bottom: 0.5rem;
   }
 
-  .max-lg\:text-7xl {
-    font-size: 4.5rem;
-    line-height: 1;
+  .max-lg\:mb-4 {
+    margin-bottom: 1rem;
+  }
+
+  .max-lg\:mb-6 {
+    margin-bottom: 1.5rem;
+  }
+
+  .max-lg\:ml-auto {
+    margin-left: auto;
+  }
+
+  .max-lg\:mr-auto {
+    margin-right: auto;
+  }
+
+  .max-lg\:hidden {
+    display: none;
+  }
+
+  .max-lg\:border-0 {
+    border-width: 0px;
+  }
+
+  .max-lg\:border-2 {
+    border-width: 2px;
+  }
+
+  .max-lg\:pr-0 {
+    padding-right: 0px;
+  }
+
+  .max-lg\:text-left {
+    text-align: left;
+  }
+
+  .max-lg\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .max-lg\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .max-lg\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .max-lg\:text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
 }
 
-@media not all and (min-width: 640px) {
-  .max-sm\:text-xs {
+@media not all and (min-width: 768px) {
+  .max-md\:my-2 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .max-md\:mb-0 {
+    margin-bottom: 0px;
+  }
+
+  .max-md\:mt-4 {
+    margin-top: 1rem;
+  }
+
+  .max-md\:block {
+    display: block;
+  }
+
+  .max-md\:w-20 {
+    width: 5rem;
+  }
+
+  .max-md\:w-3\/4 {
+    width: 75%;
+  }
+
+  .max-md\:flex-col {
+    flex-direction: column;
+  }
+
+  .max-md\:flex-col-reverse {
+    flex-direction: column-reverse;
+  }
+
+  .max-md\:rounded-lg {
+    border-radius: 0.5rem;
+  }
+
+  .max-md\:border-2 {
+    border-width: 2px;
+  }
+
+  .max-md\:text-left {
+    text-align: left;
+  }
+
+  .max-md\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .max-md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .max-md\:text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
   }
@@ -862,8 +978,13 @@ table td {
 }
 
 @media (min-width: 768px) {
-  .md\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
+  .md\:w-3\/4 {
+    width: 75%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:w-1\/2 {
+    width: 50%;
   }
 }

@@ -11,92 +11,179 @@
 
 
 <body class="text-center text-amber-950">
-  <div id="unoptimized" class="py-48 px-10">
-    <p>This site isn't optimized for mobile devices under 768px width at the moment. Please try on another device or rotate your screen.</p>
-    <img class="ml-auto mr-auto" src="./src/25mIdTOFQV.gif">
+  <div class="container w-full mr-auto ml-auto">
+    <h1 class="max-lg:text-xl w-3/4 text-center ml-auto mr-auto text-3xl mt-4 mb-4">
+      Self-employed bill calculator
+    </h1>
+    <hr>
+    <h2 class="max-lg:text-base text-left w-3/4 mr-auto ml-auto text-sm mb-2 mt-6">
+      Instructions
+    </h2>
+    <div class="max-lg:text-sm max-md:flex-col-reverse flex w-3/4 ml-auto mr-auto">
+      <ol class="text-xs text-left self-center">
+        <li class="max-lg:mb-2">
+          Input your hourly rate in the designated field to calculate estimated
+          earnings.
+        </li>
+        <li class="max-lg:mb-2">Click the "Start" button to begin the timer.
+        </li>
+        <li class="max-lg:mb-2">
+          Use the "Pause" button to take breaks or halt the timer temporarily.
+        </li>
+        <li class="max-lg:mb-2">Hit "Reset" to start over and
+          clear all recorded time.</li>
+      </ol>
+      <img src="./src/undraw_time_management_re_tk5w.svg" class="max-lg:mb-6 max-md:w-3/4 max-lg:mr-auto max-lg:ml-auto w-1/4 ml-auto">
+    </div>
+    <div class="w-1/2 max-lg:border-0 border-4 mr-auto ml-auto mt-4 mb-4">
+      <label for="hourly-rate-input" id="hourly-rate-label" class="max-lg:mb-4 max-lg:text-xs max-lg:text-left block mb-2 text-sm font-medium mt-4"
+        >How much you charge for an hour of work
+        (€):</label>
+      <input
+        class="
+        max-lg:border-2 
+        text-center 
+        w-20 
+        p-2 
+        text-amber-950 
+        border 
+        border-gray-300 
+        rounded-lg 
+        bg-gray-50 
+        sm:text-xs 
+        focus:ring-blue-500 focus:border-blue-500"
+        type="number" id="hourly-rate-input" min="0" step="0.1" value="10" />
+      <div class="text-center max-md:text-xl text-2xl mt-4 mb-4 text-amber-500" id="timer">00:00:00
+      </div>
+      <div class="inline-flex rounded-md shadow-sm max-md:flex-col" role="group">
+        <button type="button"
+          class="
+          max-md:w-20
+          max-md:block
+          max-md:rounded-lg
+          max-md:my-2
+          max-md:border-2
+          inline-flex 
+          items-center 
+          px-4 
+          py-2 
+          text-sm 
+          font-medium 
+          text-amber-950 
+          bg-transparent border 
+          border-gray-300 
+          rounded-l-lg 
+          hover:bg-amber-700 
+          hover:text-white focus:z-10 
+          focus:bg-amber-700 
+          focus:text-white"
+          id="start">
+          <i class="fa-solid fa-play pr-2 max-lg:pr-0"></i>
+          <span class="max-lg:hidden">Start</span>
+        </button>
+        <button type="button"
+          class="
+          max-md:w-20
+          max-md:block
+          max-md:rounded-lg
+          max-md:my-2
+          max-md:border-2 
+          inline-flex
+          items-center 
+          px-4 
+          py-2 
+          text-sm 
+          font-medium 
+          text-amber-950 
+          bg-transparent 
+          border-t
+          border-b 
+          border-gray-300 
+          hover:bg-amber-700 
+          hover:text-white 
+          focus:z-10 
+          focus:bg-amber-700 
+          focus:text-white"
+          id="pause">
+          <i class="fa-solid fa-pause pr-2 max-lg:pr-0"></i>
+          <span class="max-lg:hidden">Pause</span>
+        </button>
+        <button type="button" id="reset"
+          class="
+          max-md:w-20
+          max-md:block
+          max-md:rounded-lg
+          max-md:my-2
+          max-md:border-2
+          inline-flex 
+          items-center 
+          px-4 
+          py-2 
+          text-sm 
+          font-medium 
+          text-amber-950 
+          bg-transparent 
+          border 
+          border-gray-300 
+          rounded-r-md 
+          hover:bg-amber-700 
+          hover:text-white 
+          focus:z-10 
+          focus:bg-amber-700 
+          focus:text-white">
+          <i class="fa-solid fa-rotate-right pr-2 max-lg:pr-0"></i>
+          <span class="max-lg:hidden">Reset</span>
+        </button>
+      </div>
+      <div class="mt-4 text-sm" id="elapsed-time-title">
+        You've been working since:
+      </div>
+      <div class="text-amber-500" id="elapsed-time-value">00:00:00</div>
+      <div class="mt-4 text-sm" id="payment-amount-title">You should be paid:</div>
+      <div class="text-amber-500" id="payment-amount-value">0 €</div>
+    </div>
   </div>
-  <div id="optimized">
-    <div class="container w-full mr-auto ml-auto">
-      <h1 class="text-3xl mt-4 mb-4" data-translate="Self-employed bill calculator">Self-employed bill calculator</h1>
-      <h2 class="text-left w-1/2 mr-auto ml-auto text-sm">Instructions</h2>
-      <div class="flex w-1/2 ml-auto mr-auto justify-stretch">
-        <ol class="text-xs text-left self-center">
-          <li data-translate='Click the "Start" button to begin the timer.'>Click the "Start" button to begin the timer.
-          </li>
-          <li data-translate='Use the "Pause" button to take breaks or halt the timer temporarily.'>
-            Use the "Pause" button to take breaks or halt the timer temporarily.
-          </li>
-          <li data-translate='Hit "Reset" to start over and clear all recorded time.'>Hit "Reset" to start over and
-            clear all recorded time.</li>
-          <li data-translate='Input your hourly rate in the designated field to calculate estimated earnings.'>
-            Input your hourly rate in the designated field to calculate estimated
-            earnings.
-          </li>
-        </ol>
-        <img src="./src/undraw_time_management_re_tk5w.svg" class="w-1/4">
-      </div>
-      <div class="w-1/2 border-4 mr-auto ml-auto mt-4 mb-4">
-        <label for="hourly-rate-input" id="hourly-rate-label" class="block mb-2 text-sm font-medium mt-4"
-          data-translate='How much you charge for an hour of work (€):'>How much you charge for an hour of work
-          (€):</label>
-        <input
-          class="w-20 p-2 text-amber-950 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500"
-          type="number" id="hourly-rate-input" min="0" step="0.1" value="10" />
-        <div class="text-center max-lg:text-7xl max-sm:text-xs md:text-2xl mt-4 mb-4 text-amber-500" id="timer">00:00:00
-        </div>
-        <div class="inline-flex rounded-md shadow-sm max-lg:flex-col" role="group">
-          <button type="button"
-            class="inline-flex items-center px-4 py-2 text-sm font-medium text-amber-950 bg-transparent border border-gray-300 rounded-l-lg hover:bg-amber-700 hover:text-white focus:z-10 focus:bg-amber-700 focus:text-white"
-            id="start">
-            <i class="fa-solid fa-hourglass-start pr-2"></i>
-            <span data-translate="Start">Start</span>
-          </button>
-          <button type="button"
-            class="inline-flex items-center px-4 py-2 text-sm font-medium text-amber-950 bg-transparent border-t border-b border-gray-300 hover:bg-amber-700 hover:text-white focus:z-10 focus:bg-amber-700 focus:text-white"
-            id="pause">
-            <i class="fa-solid fa-pause pr-2"></i>
-            <span data-translate="Pause">Pause</span>
-          </button>
-          <button type="button" id="reset"
-            class="inline-flex items-center px-4 py-2 text-sm font-medium text-amber-950 bg-transparent border border-gray-300 rounded-r-md hover:bg-amber-700 hover:text-white focus:z-10 focus:bg-amber-700 focus:text-white">
-            <i class="fa-solid fa-power-off pr-2"></i>
-            <span data-translate="Start over">Start over</span>
-          </button>
-        </div>
-        <div class="mt-4" id="elapsed-time-title" data-translate="You've been working since:">
-          You've been working since:
-        </div>
-        <div id="elapsed-time-value">00:00:00</div>
-        <div class="mt-4" id="payment-amount-title" data-translate="You should be paid:">You should be paid:</div>
-        <div id="payment-amount-value">0 €</div>
-      </div>
-    </div>
-    <div class="navigate-month inline-flex rounded-md shadow-sm max-lg:flex-col" role="group">
+
+  <hr>
+
+  <div class="" id="wholeCalendarSection">
+    <div class="text-center text-2xl mt-4 max-md:mb-0 mb-4 text-amber-500" id="monthName"></div>
+    <div class="calendar-container ml-auto mr-auto mt-4 max-md:mt-4 lg:w-1/2 md:w-3/4 max-md:text-xs pl-4 pr-4" id="calendarContainer"></div>
+    <div class="my-4 navigate-month inline-flex rounded-md shadow-sm" role="group">
       <button onclick="navigateMonth(-1)"
-        class="inline-flex items-center px-4 py-2 text-sm font-medium text-amber-950 bg-transparent border border-gray-300 rounded-l-lg hover:bg-amber-700 hover:text-white focus:z-10 focus:bg-amber-700 focus:text-white">Previous</button>
+        class="
+        border-1
+        inline-flex 
+        items-center 
+        px-4 
+        py-2 
+        text-sm 
+        font-medium 
+        text-amber-950 
+        bg-transparent border 
+        border-gray-300 
+        rounded-l-lg 
+        hover:bg-amber-700 
+        hover:text-white focus:z-10 
+        focus:bg-amber-700 
+        focus:text-white">
+        Previous</button>
       <button onclick="navigateMonth(1)"
-        class="inline-flex items-center px-4 py-2 text-sm font-medium text-amber-950 bg-transparent border border-gray-300 rounded-r-md hover:bg-amber-700 hover:text-white focus:z-10 focus:bg-amber-700 focus:text-white">Next</button>
+        class="border-1 inline-flex items-center px-4 py-2 text-sm font-medium text-amber-950 bg-transparent border border-gray-300 rounded-r-md hover:bg-amber-700 hover:text-white focus:z-10 focus:bg-amber-700 focus:text-white">Next</button>
     </div>
-    <div class="text-center max-lg:text-7xl max-sm:text-xs md:text-2xl mt-4 mb-4 text-amber-500" id="monthName"></div>
-    <div class="calendar-container w-5/12 ml-auto mr-auto mt-8" id="calendarContainer"></div>
     <div>
-      <p>
-        You've been working <span id="timeSum"></span> on your project this month.</br>
-        Since you're billing <span id="ogSalary"></span>€ per hour, you should be paid <span id="finalSalary"></span>.
+      <p class="w-1/2 text-left ml-auto mr-auto text-base max-md:text-sm">
+        You've been working <span class="text-amber-500" id="timeSum"></span></br> 
+        on your project this month.</br>
+        Since you're billing <span id="ogSalary"></span>€ per hour, you should be paid <span class="text-amber-500" id="finalSalary"></span>.
       </p>
     </div>
   </div>
-  <footer class="w-5/12 ml-auto mr-auto text-gray-400 mt-8">
-    <p class="text-xs italic text-center"
-      data-translate="Note: Clearing your browser cache will result in the loss of any stored data in this timer application. Please keep this in mind if you wish to retain your progress.">
-      Note: Clearing your browser cache will result in the loss of any stored
-      data in this timer application.
-      Please keep this in mind if you wish to
-      retain your progress.</p>
-    <span class="text-xs italic text-center"
-      data-translate="For the source code of this timer application and additional informations, visit my GitHub profile at">For
-      the source code of this timer application and additional informations,
-      visit my GitHub profile at </span><a href="https://github.com/l4ur4nn3"
+
+  <footer class="text-left max-md:text-xs w-3/4 ml-auto mr-auto text-gray-400 mt-8 max-md:text-left">
+    <p class="text-xs italic">
+      Note: Clearing your browser cache will result in the loss of any stored data in this timer application. Please keep this in mind if you wish to retain your progress.</br>
+      For the source code of this timer application and additional informations, visit my GitHub profile at </span><a href="https://github.com/l4ur4nn3"
       class="text-xs italic text-gray-500 underline">l4ur4nn3</a>.</span>
     </p>
     <script src="src/script.js"></script>
