@@ -1,5 +1,6 @@
 // WIP 
-// FIXING THE NAN AT THE FIRST LAUNCH
+// FIXING THE NAN AT THE FIRST LAUNCH => due to the nullmin !!
+// Fix the nullmin prob to be free of the nan problem
 // Mobile version
 // Not display the 'You've been working[...]' part if no work done that month
 // Making it aesthetic

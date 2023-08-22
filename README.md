@@ -9,19 +9,13 @@ Welcome to this timer application! This user-friendly tool is designed to help y
 - Pause feature for taking breaks without losing progress.
 - Calculate payment amounts based on your chosen hourly rate.
 - Seamless continuity with local storage to remember your progress.
+- Track your progression day by day, allowing you to see your time logs for each day.
+- Gain insights into your weekly productivity by viewing the total time tracked for an entire month.
+
 
 ## ⚠️ Important Note
 
 **Please note that the timer application utilizes local storage to store your progress.** It's essential to be cautious and avoid clearing your browser's cache or storage, as it will result in the loss of any stored data in the application, including your progression. We recommend keeping this in mind to ensure that your tracked time and tasks remain intact.
-
-## Upcoming Features
-
-We are continuously improving the timer application to provide an even better experience. Here are some upcoming features we have planned:
-
-- Track your progression day by day, allowing you to see your time logs for each day.
-- Gain insights into your weekly productivity by viewing the total time tracked for an entire week.
-
-Stay tuned for these exciting updates!
 
 ## Installation
 
