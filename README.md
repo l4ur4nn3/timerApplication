@@ -10,7 +10,7 @@ Welcome to this timer application! This user-friendly tool is designed to help y
 - Calculate payment amounts based on your chosen hourly rate.
 - Seamless continuity with local storage to remember your progress.
 - Track your progression day by day, allowing you to see your time logs for each day.
-- Gain insights into your weekly productivity by viewing the total time tracked for an entire month.
+- Gain insights into your monthly productivity by viewing the total time tracked for an entire month.
 
 
 ## ⚠️ Important Note
