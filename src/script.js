@@ -279,7 +279,7 @@ function handleTdClick(event) {
           calculateAndDisplayResults();
         }
       } else {
-        alert("Unvalid option. Please try again.");
+        alert("Invalid option. Please try again.");
       }
     }
   } else {

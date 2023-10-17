@@ -19,7 +19,7 @@ Welcome to this timer application! This user-friendly tool is designed to help y
 
 ## Installation
 
-To use the timer application, simply visit [this link](https://main--leafy-madeleine-b103fa.netlify.app/) in your web browser.
+To use the timer application, simply visit [this link](https://freelancetimer.netlify.app) in your web browser.
 
 ## Contributing
 
