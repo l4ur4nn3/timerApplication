@@ -125,6 +125,12 @@ function navigateMonth(direction) {
 
 //generate the content after the page loaded
 document.addEventListener("DOMContentLoaded", () => {
+  // Déplacer la déclaration des variables ici
+  const currentMonth =
+    parseInt(localStorage.getItem("currentMonth")) || new Date().getMonth();
+  const currentYear =
+    parseInt(localStorage.getItem("currentYear")) || new Date().getFullYear();
+
   generateCalendar(currentMonth, currentYear);
 });
 
@@ -418,6 +424,9 @@ window.addEventListener("load", () => {
   );
 
   navigateMonthButtons.forEach((button) => {
+    localStorage.setItem("currentMonth", currentMonth);
+    localStorage.setItem("currentYear", currentYear);
+
     button.addEventListener("click", () => {
       calculateAndDisplayResults();
     });
@@ -426,3 +435,16 @@ window.addEventListener("load", () => {
 
 //maybe making a french version
 //save the €/h in localstorage
+
+document.addEventListener("DOMContentLoaded", () => {
+  let currentMonth = parseInt(localStorage.getItem("currentMonth"));
+  let currentYear = parseInt(localStorage.getItem("currentYear"));
+
+  // Si les valeurs ne sont pas présentes dans le stockage local, utilisez les valeurs par défaut
+  if (isNaN(currentMonth) || isNaN(currentYear)) {
+    currentMonth = new Date().getMonth();
+    currentYear = new Date().getFullYear();
+  }
+
+  generateCalendar(currentMonth, currentYear);
+});
